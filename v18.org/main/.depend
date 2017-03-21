@@ -1,0 +1,151 @@
+entry.o: entry.S
+lib1funcs.o: lib1funcs.S
+main.o: main.c /project/ez-x5/ezboot/v18.org/include/pxa255.h \
+  /project/ez-x5/ezboot/v18.org/include/serial.h \
+  /project/ez-x5/ezboot/v18.org/include/time.h \
+  /project/ez-x5/ezboot/v18.org/include/gpio.h \
+  /project/ez-x5/ezboot/v18.org/include/stdio.h \
+  /project/ez-x5/ezboot/v18.org/include/stdarg.h \
+  /project/ez-x5/ezboot/v18.org/include/string.h \
+  /project/ez-x5/ezboot/v18.org/include/mem_map.h \
+  /project/ez-x5/ezboot/v18.org/include/config.h \
+  /project/ez-x5/ezboot/v18.org/include/cs8900.h \
+  /project/ez-x5/ezboot/v18.org/include/flash.h \
+  /project/ez-x5/ezboot/v18.org/include/flash_29lvx.h \
+  /project/ez-x5/ezboot/v18.org/include/nand.h \
+  /project/ez-x5/ezboot/v18.org/include/main.h
+serial.o: serial.c /project/ez-x5/ezboot/v18.org/include/pxa255.h \
+  /project/ez-x5/ezboot/v18.org/include/config.h \
+  /project/ez-x5/ezboot/v18.org/include/serial.h \
+  /project/ez-x5/ezboot/v18.org/include/time.h \
+  /project/ez-x5/ezboot/v18.org/include/stdio.h \
+  /project/ez-x5/ezboot/v18.org/include/stdarg.h \
+  /project/ez-x5/ezboot/v18.org/include/gpio.h
+time.o: time.c /project/ez-x5/ezboot/v18.org/include/pxa255.h \
+  /project/ez-x5/ezboot/v18.org/include/time.h
+gpio.o: gpio.c /project/ez-x5/ezboot/v18.org/include/pxa255.h \
+  /project/ez-x5/ezboot/v18.org/include/gpio.h
+flash_29lvx.o: flash_29lvx.c \
+  /project/ez-x5/ezboot/v18.org/include/pxa255.h \
+  /project/ez-x5/ezboot/v18.org/include/stdio.h \
+  /project/ez-x5/ezboot/v18.org/include/stdarg.h \
+  /project/ez-x5/ezboot/v18.org/include/string.h \
+  /project/ez-x5/ezboot/v18.org/include/time.h \
+  /project/ez-x5/ezboot/v18.org/include/flash_29lvx.h \
+  /project/ez-x5/ezboot/v18.org/include/mem_map.h
+cs8900.o: cs8900.c /project/ez-x5/ezboot/v18.org/include/pxa255.h \
+  /project/ez-x5/ezboot/v18.org/include/stdio.h \
+  /project/ez-x5/ezboot/v18.org/include/stdarg.h \
+  /project/ez-x5/ezboot/v18.org/include/string.h \
+  /project/ez-x5/ezboot/v18.org/include/time.h \
+  /project/ez-x5/ezboot/v18.org/include/mem_map.h \
+  /project/ez-x5/ezboot/v18.org/include/cs8900.h \
+  /project/ez-x5/ezboot/v18.org/include/config.h
+arp_cmd.o: arp_cmd.c /project/ez-x5/ezboot/v18.org/include/pxa255.h \
+  /project/ez-x5/ezboot/v18.org/include/serial.h \
+  /project/ez-x5/ezboot/v18.org/include/time.h \
+  /project/ez-x5/ezboot/v18.org/include/gpio.h \
+  /project/ez-x5/ezboot/v18.org/include/stdio.h \
+  /project/ez-x5/ezboot/v18.org/include/stdarg.h \
+  /project/ez-x5/ezboot/v18.org/include/string.h \
+  /project/ez-x5/ezboot/v18.org/include/cs8900.h \
+  /project/ez-x5/ezboot/v18.org/include/net.h \
+  /project/ez-x5/ezboot/v18.org/include/config.h
+net.o: net.c /project/ez-x5/ezboot/v18.org/include/pxa255.h \
+  /project/ez-x5/ezboot/v18.org/include/stdio.h \
+  /project/ez-x5/ezboot/v18.org/include/stdarg.h \
+  /project/ez-x5/ezboot/v18.org/include/string.h \
+  /project/ez-x5/ezboot/v18.org/include/time.h \
+  /project/ez-x5/ezboot/v18.org/include/cs8900.h \
+  /project/ez-x5/ezboot/v18.org/include/net.h
+tftp_cmd.o: tftp_cmd.c /project/ez-x5/ezboot/v18.org/include/pxa255.h \
+  /project/ez-x5/ezboot/v18.org/include/serial.h \
+  /project/ez-x5/ezboot/v18.org/include/time.h \
+  /project/ez-x5/ezboot/v18.org/include/gpio.h \
+  /project/ez-x5/ezboot/v18.org/include/stdio.h \
+  /project/ez-x5/ezboot/v18.org/include/stdarg.h \
+  /project/ez-x5/ezboot/v18.org/include/string.h \
+  /project/ez-x5/ezboot/v18.org/include/mem_map.h \
+  /project/ez-x5/ezboot/v18.org/include/cs8900.h \
+  /project/ez-x5/ezboot/v18.org/include/net.h \
+  /project/ez-x5/ezboot/v18.org/include/config.h \
+  /project/ez-x5/ezboot/v18.org/include/flash.h \
+  /project/ez-x5/ezboot/v18.org/include/flash_29lvx.h \
+  /project/ez-x5/ezboot/v18.org/include/nand.h
+go_cmd.o: go_cmd.c /project/ez-x5/ezboot/v18.org/include/pxa255.h \
+  /project/ez-x5/ezboot/v18.org/include/stdio.h \
+  /project/ez-x5/ezboot/v18.org/include/stdarg.h \
+  /project/ez-x5/ezboot/v18.org/include/string.h \
+  /project/ez-x5/ezboot/v18.org/include/config.h \
+  /project/ez-x5/ezboot/v18.org/include/mem_map.h
+config.o: config.c /project/ez-x5/ezboot/v18.org/include/pxa255.h \
+  /project/ez-x5/ezboot/v18.org/include/serial.h \
+  /project/ez-x5/ezboot/v18.org/include/time.h \
+  /project/ez-x5/ezboot/v18.org/include/gpio.h \
+  /project/ez-x5/ezboot/v18.org/include/stdio.h \
+  /project/ez-x5/ezboot/v18.org/include/stdarg.h \
+  /project/ez-x5/ezboot/v18.org/include/string.h \
+  /project/ez-x5/ezboot/v18.org/include/flash.h \
+  /project/ez-x5/ezboot/v18.org/include/flash_29lvx.h \
+  /project/ez-x5/ezboot/v18.org/include/nand.h \
+  /project/ez-x5/ezboot/v18.org/include/mem_map.h \
+  /project/ez-x5/ezboot/v18.org/include/config.h
+help.o: help.c /project/ez-x5/ezboot/v18.org/include/stdio.h \
+  /project/ez-x5/ezboot/v18.org/include/stdarg.h \
+  /project/ez-x5/ezboot/v18.org/include/string.h
+zmodem.o: zmodem.c /project/ez-x5/ezboot/v18.org/include/pxa255.h \
+  /project/ez-x5/ezboot/v18.org/include/serial.h \
+  /project/ez-x5/ezboot/v18.org/include/time.h \
+  /project/ez-x5/ezboot/v18.org/include/gpio.h \
+  /project/ez-x5/ezboot/v18.org/include/stdio.h \
+  /project/ez-x5/ezboot/v18.org/include/stdarg.h \
+  /project/ez-x5/ezboot/v18.org/include/string.h \
+  /project/ez-x5/ezboot/v18.org/include/zmodem.h
+ram_cmd.o: ram_cmd.c /project/ez-x5/ezboot/v18.org/include/pxa255.h \
+  /project/ez-x5/ezboot/v18.org/include/stdio.h \
+  /project/ez-x5/ezboot/v18.org/include/stdarg.h \
+  /project/ez-x5/ezboot/v18.org/include/string.h
+zmodem_cmd.o: zmodem_cmd.c /project/ez-x5/ezboot/v18.org/include/pxa255.h \
+  /project/ez-x5/ezboot/v18.org/include/stdio.h \
+  /project/ez-x5/ezboot/v18.org/include/stdarg.h \
+  /project/ez-x5/ezboot/v18.org/include/string.h \
+  /project/ez-x5/ezboot/v18.org/include/zmodem.h \
+  /project/ez-x5/ezboot/v18.org/include/mem_map.h \
+  /project/ez-x5/ezboot/v18.org/include/config.h \
+  /project/ez-x5/ezboot/v18.org/include/flash.h \
+  /project/ez-x5/ezboot/v18.org/include/flash_29lvx.h \
+  /project/ez-x5/ezboot/v18.org/include/nand.h
+flash_cmd.o: flash_cmd.c /project/ez-x5/ezboot/v18.org/include/pxa255.h \
+  /project/ez-x5/ezboot/v18.org/include/stdio.h \
+  /project/ez-x5/ezboot/v18.org/include/stdarg.h \
+  /project/ez-x5/ezboot/v18.org/include/string.h \
+  /project/ez-x5/ezboot/v18.org/include/config.h \
+  /project/ez-x5/ezboot/v18.org/include/mem_map.h \
+  /project/ez-x5/ezboot/v18.org/include/flash.h \
+  /project/ez-x5/ezboot/v18.org/include/flash_29lvx.h \
+  /project/ez-x5/ezboot/v18.org/include/nand.h
+nand.o: nand.c /project/ez-x5/ezboot/v18.org/include/pxa255.h \
+  /project/ez-x5/ezboot/v18.org/include/serial.h \
+  /project/ez-x5/ezboot/v18.org/include/time.h \
+  /project/ez-x5/ezboot/v18.org/include/gpio.h \
+  /project/ez-x5/ezboot/v18.org/include/stdio.h \
+  /project/ez-x5/ezboot/v18.org/include/stdarg.h \
+  /project/ez-x5/ezboot/v18.org/include/string.h \
+  /project/ez-x5/ezboot/v18.org/include/mem_map.h \
+  /project/ez-x5/ezboot/v18.org/include/config.h \
+  /project/ez-x5/ezboot/v18.org/include/nand.h
+printf.o: printf.c /project/ez-x5/ezboot/v18.org/include/pxa255.h \
+  /project/ez-x5/ezboot/v18.org/include/time.h \
+  /project/ez-x5/ezboot/v18.org/include/gpio.h \
+  /project/ez-x5/ezboot/v18.org/include/serial.h \
+  /project/ez-x5/ezboot/v18.org/include/stdio.h \
+  /project/ez-x5/ezboot/v18.org/include/stdarg.h \
+  /project/ez-x5/ezboot/v18.org/include/string.h
+vsprintf.o: vsprintf.c /project/ez-x5/ezboot/v18.org/include/stdio.h \
+  /project/ez-x5/ezboot/v18.org/include/stdarg.h \
+  /project/ez-x5/ezboot/v18.org/include/string.h
+vscanf.o: vscanf.c /project/ez-x5/ezboot/v18.org/include/stdio.h \
+  /project/ez-x5/ezboot/v18.org/include/stdarg.h \
+  /project/ez-x5/ezboot/v18.org/include/string.h
+string.o: string.c /project/ez-x5/ezboot/v18.org/include/stdio.h \
+  /project/ez-x5/ezboot/v18.org/include/stdarg.h

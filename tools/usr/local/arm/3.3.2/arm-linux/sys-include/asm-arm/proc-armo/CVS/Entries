@@ -1,0 +1,14 @@
+/.cvsignore/1.1/Thu May  4 14:57:57 2000/-ko/
+/assembler.h/1.5/Thu Sep 14 15:56:39 2000/-ko/
+/cache.h/1.8/Tue Aug 14 08:56:43 2001/-ko/
+/elf.h/1.3/Thu May  4 13:15:14 2000/-ko/
+/page.h/1.3/Thu Sep 14 15:56:39 2000/-ko/
+/pgalloc.h/1.1/Sat Apr 14 23:22:43 2001/-ko/
+/pgtable.h/1.6/Tue Aug 14 08:56:43 2001/-ko/
+/processor.h/1.6/Fri Sep 27 13:54:50 2002/-ko/
+/ptrace.h/1.6/Sat Apr 14 23:22:43 2001/-ko/
+/shmparam.h/1.3/Thu Sep 14 15:56:39 2000/-ko/
+/system.h/1.9/Fri Sep 27 13:54:50 2002/-ko/
+/uaccess.h/1.4/Tue Aug 14 08:56:43 2001/-ko/
+/locks.h/1.5/Wed Feb 19 14:11:41 2003/-ko/
+D

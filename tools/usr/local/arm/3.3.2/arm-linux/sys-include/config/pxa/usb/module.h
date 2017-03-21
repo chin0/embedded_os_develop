@@ -1,0 +1,1 @@
+#define CONFIG_PXA_USB_MODULE 1

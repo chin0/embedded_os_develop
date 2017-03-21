@@ -1,0 +1,1 @@
+#define CONFIG_MTD_DEBUG_VERBOSE (1)

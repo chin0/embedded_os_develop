@@ -1,0 +1,1 @@
+#define CONFIG_H3600_ASIC_MODULE 1

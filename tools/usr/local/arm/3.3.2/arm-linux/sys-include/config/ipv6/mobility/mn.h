@@ -1,0 +1,1 @@
+#define CONFIG_IPV6_MOBILITY_MN 1

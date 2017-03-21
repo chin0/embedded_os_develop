@@ -1,0 +1,1 @@
+#undef  CONFIG_SMC_IRCC_FIR

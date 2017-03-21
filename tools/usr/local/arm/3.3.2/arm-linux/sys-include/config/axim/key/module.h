@@ -1,0 +1,1 @@
+#define CONFIG_AXIM_KEY_MODULE 1

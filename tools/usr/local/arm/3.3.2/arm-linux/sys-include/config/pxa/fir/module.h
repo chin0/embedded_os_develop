@@ -1,0 +1,1 @@
+#define CONFIG_PXA_FIR_MODULE 1

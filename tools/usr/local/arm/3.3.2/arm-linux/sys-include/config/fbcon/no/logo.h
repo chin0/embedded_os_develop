@@ -1,0 +1,1 @@
+#undef  CONFIG_FBCON_NO_LOGO

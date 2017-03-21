@@ -1,0 +1,13 @@
+Versions
+  gcc-3.3.2
+  glibc-2.3.2
+  binutils-head
+Tool chain binutils configuration:
+../binutils-head/configure --target=arm-linux --prefix=/usr/local/arm/3.3.2 --host=i686-pc-linux-gnu
+
+Tool chain glibc configuration:
+../glibc-2.3.2/configure --host=arm-linux --build=i686-pc-linux-gnu --with-headers=/work/kernel.h3900/include --enable-add-ons=linuxthreads --enable-shared --prefix=/usr/local/arm/3.3.2
+
+Tool chain gcc configuration
+../gcc-3.3.2/configure --target=arm-linux --with-cpu=strongarm1100 --prefix=/usr/local/arm/3.3.2 i686-pc-linux-gnu --with-headers=/work/kernel.h3900/include --enable-threads=pthreads --enable-shared --enable-static --enable-languages=c,c++
+

@@ -1,0 +1,1 @@
+#define CONFIG_AXIM_TS_MODULE 1

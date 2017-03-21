@@ -1,0 +1,1 @@
+#define CONFIG_IRDA_MODULE 1

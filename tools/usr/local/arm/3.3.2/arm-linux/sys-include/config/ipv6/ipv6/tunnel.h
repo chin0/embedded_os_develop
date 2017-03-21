@@ -1,0 +1,1 @@
+#undef  CONFIG_IPV6_IPV6_TUNNEL

@@ -1,0 +1,1 @@
+#define CONFIG_NVRD_MODULE 1

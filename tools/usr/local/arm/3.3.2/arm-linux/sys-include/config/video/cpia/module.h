@@ -1,0 +1,1 @@
+#define CONFIG_VIDEO_CPIA_MODULE 1

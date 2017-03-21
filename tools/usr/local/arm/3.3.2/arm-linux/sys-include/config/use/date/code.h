@@ -1,0 +1,1 @@
+#undef  CONFIG_USE_DATE_CODE

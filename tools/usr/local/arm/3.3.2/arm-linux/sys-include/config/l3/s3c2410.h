@@ -1,0 +1,1 @@
+#undef  CONFIG_L3_S3C2410

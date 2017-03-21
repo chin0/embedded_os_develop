@@ -1,0 +1,1 @@
+#undef  CONFIG_H3800_MICROKBD

@@ -1,0 +1,8 @@
+.*.flags
+.depend
+config
+version.h
+modules
+autoconf.h
+compile.h
+modversions.h

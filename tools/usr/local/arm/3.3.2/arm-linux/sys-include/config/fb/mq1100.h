@@ -1,0 +1,1 @@
+#define CONFIG_FB_MQ1100 1

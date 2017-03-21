@@ -1,0 +1,26 @@
+/.cvsignore/1.1/Thu May  4 15:02:55 2000/-ko/
+/fbcon-afb.h/1.2/Thu May  4 00:53:27 2000/-ko/
+/fbcon-cfb16.h/1.2/Thu May  4 00:53:27 2000/-ko/
+/fbcon-cfb2.h/1.2/Thu May  4 00:53:27 2000/-ko/
+/fbcon-cfb24.h/1.2/Thu May  4 00:53:27 2000/-ko/
+/fbcon-cfb32.h/1.2/Thu May  4 00:53:27 2000/-ko/
+/fbcon-cfb4.h/1.2/Thu May  4 00:53:27 2000/-ko/
+/fbcon-cfb8.h/1.2/Thu May  4 00:53:27 2000/-ko/
+/fbcon-hga.h/1.2/Thu May  4 00:53:27 2000/-ko/
+/fbcon-ilbm.h/1.2/Thu May  4 00:53:27 2000/-ko/
+/fbcon-iplan2p2.h/1.2/Thu May  4 00:53:27 2000/-ko/
+/fbcon-iplan2p4.h/1.2/Thu May  4 00:53:27 2000/-ko/
+/fbcon-iplan2p8.h/1.2/Thu May  4 00:53:27 2000/-ko/
+/fbcon-mac.h/1.2/Thu May  4 00:53:27 2000/-ko/
+/fbcon-mfb.h/1.2/Thu May  4 00:53:27 2000/-ko/
+/fbcon-vga-planes.h/1.2/Thu May  4 00:53:27 2000/-ko/
+/fbcon-vga.h/1.2/Thu May  4 00:53:27 2000/-ko/
+/fbcon.h/1.7/Mon Oct 29 18:46:04 2001/-ko/
+/font.h/1.2/Thu May  4 00:53:27 2000/-ko/
+/macmodes.h/1.3/Fri Jul  6 09:07:11 2001/-ko/
+/newport.h/1.3/Fri May 18 08:48:49 2001/-ko/
+/s3blit.h/1.2/Thu May  4 00:53:27 2000/-ko/
+/sa1100_frontlight.h/1.5/Wed Jun 13 08:25:15 2001/-ko/
+/sbusfb.h/1.2/Thu May  4 00:53:27 2000/-ko/
+/lcdctrl.h/1.1/Mon Dec 16 21:03:17 2002/-ko/
+D

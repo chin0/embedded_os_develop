@@ -1,0 +1,1 @@
+#define CONFIG_USB_SE401_MODULE 1

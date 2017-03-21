@@ -1,0 +1,17 @@
+/.cvsignore/1.1/Thu May  4 14:57:49 2000/-ko/
+/dma.h/1.5/Mon Oct 29 18:41:36 2001/-ko/
+/hardware.h/1.6/Mon Oct 29 18:41:36 2001/-ko/
+/ide.h/1.5/Mon Oct 29 18:41:36 2001/-ko/
+/io.h/1.10/Mon Oct 29 18:41:36 2001/-ko/
+/irq.h/1.4/Mon Oct 29 18:41:37 2001/-ko/
+/irqs.h/1.4/Mon Oct 29 18:41:37 2001/-ko/
+/keyboard.h/1.8/Mon Mar 18 14:50:41 2002/-ko/
+/memory.h/1.7/Fri Sep 27 13:54:48 2002/-ko/
+/param.h/1.4/Mon Oct 29 18:41:37 2001/-ko/
+/serial.h/1.2/Thu May  4 00:53:10 2000/-ko/
+/system.h/1.7/Fri Sep 27 13:54:49 2002/-ko/
+/time.h/1.8/Mon Oct 29 18:41:37 2001/-ko/
+/timex.h/1.4/Mon Oct 29 18:41:37 2001/-ko/
+/uncompress.h/1.4/Mon Oct 29 18:41:37 2001/-ko/
+/vmalloc.h/1.1/Thu Sep 14 23:25:08 2000/-ko/
+D

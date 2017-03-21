@@ -1,0 +1,1 @@
+#define CONFIG_FB_PXA_16BPP 1

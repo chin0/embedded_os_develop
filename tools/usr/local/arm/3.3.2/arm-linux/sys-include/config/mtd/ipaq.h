@@ -1,0 +1,1 @@
+#define CONFIG_MTD_IPAQ 1

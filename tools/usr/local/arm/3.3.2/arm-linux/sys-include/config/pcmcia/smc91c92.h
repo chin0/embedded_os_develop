@@ -1,0 +1,1 @@
+#undef  CONFIG_PCMCIA_SMC91C92

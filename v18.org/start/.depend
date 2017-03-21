@@ -1,0 +1,3 @@
+start.o: start.S /project/ez-x5/ezboot/v18.org/include/ez_x5.h
+gpio.o: gpio.S /project/ez-x5/ezboot/v18.org/include/ez_x5.h
+memory.o: memory.S /project/ez-x5/ezboot/v18.org/include/ez_x5.h

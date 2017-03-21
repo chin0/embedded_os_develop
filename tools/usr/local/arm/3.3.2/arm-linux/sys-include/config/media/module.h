@@ -1,0 +1,1 @@
+#define CONFIG_MEDIA_MODULE 1

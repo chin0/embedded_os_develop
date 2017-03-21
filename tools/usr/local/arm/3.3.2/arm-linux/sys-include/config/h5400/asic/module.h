@@ -1,0 +1,1 @@
+#define CONFIG_H5400_ASIC_MODULE 1

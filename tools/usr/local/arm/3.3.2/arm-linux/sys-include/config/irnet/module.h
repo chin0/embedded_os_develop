@@ -1,0 +1,1 @@
+#define CONFIG_IRNET_MODULE 1

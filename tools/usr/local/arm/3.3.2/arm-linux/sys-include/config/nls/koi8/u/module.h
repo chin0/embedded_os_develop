@@ -1,0 +1,1 @@
+#define CONFIG_NLS_KOI8_U_MODULE 1

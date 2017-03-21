@@ -1,0 +1,1 @@
+#undef  CONFIG_FB_CLPS711X

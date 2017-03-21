@@ -1,0 +1,1 @@
+#define CONFIG_PCMCIA_PXA_MODULE 1

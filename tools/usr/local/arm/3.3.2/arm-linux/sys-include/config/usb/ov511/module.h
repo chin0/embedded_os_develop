@@ -1,0 +1,1 @@
+#define CONFIG_USB_OV511_MODULE 1

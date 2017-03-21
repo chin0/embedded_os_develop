@@ -1,0 +1,1 @@
+#undef  CONFIG_V4L2_DEV

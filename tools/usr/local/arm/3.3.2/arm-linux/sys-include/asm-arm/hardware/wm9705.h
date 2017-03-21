@@ -1,0 +1,61 @@
+/*
+ * linux/include/asm-arm/hardware/wm9705.h
+ *
+ * Copyright (C) 2003 Martin Demin
+ *
+ * This file contains definitions for the WM9705 AC'97 codec
+ * it however contains only non AC'97 fuctions: like 
+ * battery monitoring, touchscreen ...
+ *
+ * 
+ */
+
+#ifndef _ASM_WM9705_H
+#define _ASM_WM9705_H
+
+#include <asm/arch/bitfield.h>
+
+#define AC97_DIGICON1	0x0076
+#define AC97_DIGICON1_POLL	0x8000
+#define AC97_DIGICON1_ADR	0x7000
+#define AC97_DIGICON1_ADR_SHIFT	12
+#define AC97_DIGICON1_COO	0x0800
+#define AC97_DIGICON1_CTC	0x0400
+#define AC97_DIGICON1_CD	0x0300
+#define AC97_DIGICON1_DEL	0x00F0
+#define AC97_DIGICON1_DEL_SHIFT	4
+#define AC97_DIGICON1_SLEN	0x0008
+#define AC97_DIGICON1_SLT	0x0007
+
+#define AC97_DIGICON1_ADR_NONE		0x0
+#define AC97_DIGICON1_ADR_X		0x1
+#define AC97_DIGICON1_ADR_Y		0x2
+#define AC97_DIGICON1_ADR_PRESS		0x3
+#define AC97_DIGICON1_ADR_BMON		0x4
+#define AC97_DIGICON1_ADR_AUXADC	0x5
+#define AC97_DIGICON1_ADR_PHONE		0x6
+#define AC97_DIGICON1_ADR_PCBEEP	0x7
+
+
+#define AC97_DIGICON2	0x0078
+#define AC97_DIGICON2_PRP	0xC000
+#define AC97_DIGICON2_RPR	0x2000
+#define AC97_DIGICON2_PDEN	0x1000
+#define AC97_DIGICON2_PINV	0x0800
+#define AC97_DIGICON2_BSEN	0x0400
+#define AC97_DIGICON2_BINV	0x0200
+#define AC97_DIGICON2_WAIT	0x0100
+#define AC97_DIGICON2_PIL	0x0080
+#define AC97_DIGICON2_PHIZ	0x0040
+#define AC97_DIGICON2_MSK	0x0030
+#define AC97_DIGICON2_PDD	0x000F
+
+#define AC97_DIGIDATA	0x007A
+#define AC97_DIGIDATA_PNDN	0x8000
+#define AC97_DIGIDATA_PNDN_SHIFT	15
+#define AC97_DIGIDATA_ADR	0x7000
+#define AC97_DIGIDATA_ADR_SHIFT 12	
+#define AC97_DIGIDATA_DATA	0x0FFF
+
+
+#endif  /* _ASM_WM9705_H */

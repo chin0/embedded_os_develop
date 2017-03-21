@@ -1,0 +1,1 @@
+#define CONFIG_ARCH_H5400 1

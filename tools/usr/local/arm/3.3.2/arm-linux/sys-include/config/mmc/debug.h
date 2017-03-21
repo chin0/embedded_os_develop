@@ -1,0 +1,1 @@
+#define CONFIG_MMC_DEBUG 1

@@ -1,0 +1,4 @@
+/* GNU ld script
+   Use the shared library, but some functions are only in
+   the static library, so try that secondarily.  */
+GROUP ( /usr/local/arm/3.3.2/lib/libpthread.so.0 /usr/local/arm/3.3.2/lib/libpthread_nonshared.a )

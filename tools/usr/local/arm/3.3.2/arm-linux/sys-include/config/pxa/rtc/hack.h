@@ -1,0 +1,1 @@
+#define CONFIG_PXA_RTC_HACK 1

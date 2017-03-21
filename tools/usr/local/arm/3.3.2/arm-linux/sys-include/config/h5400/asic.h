@@ -1,0 +1,1 @@
+#undef  CONFIG_H5400_ASIC

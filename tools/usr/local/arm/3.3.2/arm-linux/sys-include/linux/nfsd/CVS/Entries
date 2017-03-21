@@ -1,0 +1,14 @@
+/.cvsignore/1.1/Thu May  4 15:01:30 2000/-ko/
+/auth.h/1.2/Thu May  4 00:53:24 2000/-ko/
+/stats.h/1.3/Tue Aug  1 13:00:25 2000/-ko/
+/const.h/1.3/Mon Oct  7 14:57:51 2002/-ko/
+/interface.h/1.2/Mon Oct 27 16:20:27 2003/-ko/
+/cache.h/1.3/Tue Oct 28 18:47:05 2003/-ko/
+/debug.h/1.2/Tue Oct 28 18:46:52 2003/-ko/
+/export.h/1.6/Tue Oct 28 18:46:54 2003/-ko/
+/nfsd.h/1.6/Tue Oct 28 18:46:54 2003/-ko/
+/nfsfh.h/1.6/Tue Oct 28 18:46:52 2003/-ko/
+/syscall.h/1.3/Tue Oct 28 18:47:06 2003/-ko/
+/xdr.h/1.4/Tue Oct 28 18:47:05 2003/-ko/
+/xdr3.h/1.4/Tue Oct 28 18:47:07 2003/-ko/
+D

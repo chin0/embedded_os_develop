@@ -1,0 +1,4 @@
+.*.flags
+.depend
+mach-types.h
+constants.h

@@ -1,0 +1,1 @@
+#define CONFIG_NLS_UTF8_MODULE 1

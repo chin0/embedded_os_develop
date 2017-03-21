@@ -1,0 +1,1 @@
+#define CONFIG_SCSI_PCMCIA 1

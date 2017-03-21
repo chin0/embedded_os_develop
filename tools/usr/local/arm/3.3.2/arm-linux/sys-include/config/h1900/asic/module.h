@@ -1,0 +1,1 @@
+#define CONFIG_H1900_ASIC_MODULE 1

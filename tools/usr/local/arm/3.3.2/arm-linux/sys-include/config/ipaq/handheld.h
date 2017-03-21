@@ -1,0 +1,1 @@
+#define CONFIG_IPAQ_HANDHELD 1

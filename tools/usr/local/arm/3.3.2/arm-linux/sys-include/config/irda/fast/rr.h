@@ -1,0 +1,1 @@
+#define CONFIG_IRDA_FAST_RR 1

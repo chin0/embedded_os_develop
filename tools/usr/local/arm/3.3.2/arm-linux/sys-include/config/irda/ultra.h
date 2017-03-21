@@ -1,0 +1,1 @@
+#define CONFIG_IRDA_ULTRA 1

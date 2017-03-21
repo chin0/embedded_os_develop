@@ -1,0 +1,1 @@
+#undef  CONFIG_IRTTY_SIR

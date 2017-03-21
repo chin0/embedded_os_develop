@@ -1,0 +1,1 @@
+#define CONFIG_IRTTY_SIR_MODULE 1

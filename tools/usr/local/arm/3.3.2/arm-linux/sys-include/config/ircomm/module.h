@@ -1,0 +1,1 @@
+#define CONFIG_IRCOMM_MODULE 1

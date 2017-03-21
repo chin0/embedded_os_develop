@@ -1,0 +1,1 @@
+#undef  CONFIG_SOUND_YM3812

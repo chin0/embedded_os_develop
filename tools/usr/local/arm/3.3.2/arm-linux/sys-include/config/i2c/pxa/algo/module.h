@@ -1,0 +1,1 @@
+#define CONFIG_I2C_PXA_ALGO_MODULE 1
