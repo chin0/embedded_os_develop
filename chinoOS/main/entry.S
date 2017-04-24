@@ -1,17 +1,17 @@
 /*========================================================================================================================
 
-  È­ÀÏ¸í : entry.S
-  ¼³  ¸í : ·¥ »ó¿¡ Á¸ÀçÇÏ´Â ezBootÀÇ ¸ŞÀÎ C ÇÔ¼öÀÇ mainÀ» È£ÃâÇÏ±â À§ÇÑ ·çÆ¾ÀÌ´Ù.
+  ÃˆÂ­Ã€ÃÂ¸Ã­ : entry.S
+  Â¼Â³  Â¸Ã­ : Â·Â¥ Â»Ã³Â¿Â¡ ÃÂ¸Ã€Ã§Ã‡ÃÂ´Ã‚ ezBootÃ€Ã‡ Â¸ÃÃ€Ã C Ã‡Ã”Â¼Ã¶Ã€Ã‡ mainÃ€Â» ÃˆÂ£ÃƒÃ¢Ã‡ÃÂ±Ã¢ Ã€Â§Ã‡Ã‘ Â·Ã§Ã†Â¾Ã€ÃŒÂ´Ã™.
   
-  ÀÛ¼ºÀÚ : (ÁÖ)Á¦ÀÌ´åµğ¾ØÆ¼  À¯¿µÃ¢
-  ÀÛ¼ºÀÏ : 2001³â 10¿ù 8ÀÏ
+  Ã€Ã›Â¼ÂºÃ€Ãš : (ÃÃ–)ÃÂ¦Ã€ÃŒÂ´Ã¥ÂµÃ°Â¾Ã˜Ã†Â¼  Ã€Â¯Â¿ÂµÃƒÂ¢
+  Ã€Ã›Â¼ÂºÃ€Ã : 2001Â³Ã¢ 10Â¿Ã¹ 8Ã€Ã
   
-  ºñ  °í :  
+  ÂºÃ±  Â°Ã­ :  
 ==========================================================================================================================*/
 .global _ram_entry
 _ram_entry:
-	bl	kernel_init	   // C ÇÔ¼öÀÇ mainÇÔ¼ö¸¦ È£ÃâÇÑ´Ù. 	
-	b	_ram_entry // main ÇÔ¼öÀÇ È£ÃâÀÌ ³¡³µ´Ù¸é Àç È£ÃâÇÑ´Ù. 
+	bl	kernel_init	   // C Ã‡Ã”Â¼Ã¶Ã€Ã‡ mainÃ‡Ã”Â¼Ã¶Â¸Â¦ ÃˆÂ£ÃƒÃ¢Ã‡Ã‘Â´Ã™. 	
+	b	_ram_entry // main Ã‡Ã”Â¼Ã¶Ã€Ã‡ ÃˆÂ£ÃƒÃ¢Ã€ÃŒ Â³Â¡Â³ÂµÂ´Ã™Â¸Ã© Ã€Ã§ ÃˆÂ£ÃƒÃ¢Ã‡Ã‘Â´Ã™. 
     b   chinoOS_swiHandler
     b   chinoOS_irqHandler
 
@@ -53,36 +53,33 @@ chinoOS_swiHandler:
 
 .global chinoOS_irqHandler
 chinoOS_irqHandler:
-    msr cpsr_c, #0xc0|0x12 //¿¿¿¿¿ ¿¿¿¿¿¿ IRQ¿ ¿¿¿¿(¿¿¿¿¿ ¿¿¿ ¿¿¿¿¿ ¿ ¿¿¿ ¿¿¿ ¿¿¿¿¿)
+    msr cpsr_c, #0xc0|0x12 //disable irq (prevent interrupt nesting)
 
-    /**********************************************
-    ¿¿ ¿¿¿¿ ¿¿¿ ¿¿¿¿¿¿¿¿¿
-    ISR¿¿¿¿ ¿¿ ¿ ¿¿¿ ¿¿¿¿¿ ¿¿¿¿¿
-    ¿¿¿¿ ¿¿¿¿ (ISR¿ ¿¿¿ ¿¿¿ ¿¿¿¿
-    ¿ ¿¿¿¿¿¿)
-    ***********************************************/
+    /* Task context backup code. */
+    //chinoOS_current: global pointer that points current task's TCB
+    ldr sp, =chinoOS_current //get current process's TCP address
+    ldr sp, [sp] 
+    /*in IRQ, we can't freely use register.
+    (because, User mode and IRQ mode share 
+    all registers except lr and sp. and lr contains
+    ISR return address. therefore, we can freely use only sp.)
+    
+    sub lr,lr,#4 //because of pipeline
+    add sp,sp,#4 //sp points context array's first element.
+    stmia sp!,{r0-r12}^ //backup register
+    stmia sp!,{sp,lr}^ //backup user mode's sp,lr
+    stmia sp!,{lr} //backup irq mode's register
 
-    /* ¿¿¿¿ ¿¿ ¿¿ */
-    //chinoOS_current: ¿¿ ¿¿ ¿¿ ¿¿¿¿ TCB¿ ¿¿¿¿ ¿¿ ¿¿ ¿¿¿ ¿¿
-    ldr sp, =chinoOS_current 
-    ldr sp, [sp] //IRQ¿¿¿¿ ¿¿¿¿ ¿¿¿¿ ¿¿ ¿¿¿¿¿ SP¿¿ ¿¿¿¿¿ ¿¿¿¿ ¿¿
-
-    sub lr,lr,#4
-    add sp,sp,#4 //sp¿ TCB¿ context ¿¿¿ ¿¿¿
-    stmia sp!,{r0-r12}^
-    stmia sp!,{sp,lr}^ //user¿¿¿ sp,lr¿¿
-    stmia sp!,{lr} //irq¿¿¿ ¿¿ ¿¿¿¿ ¿¿
-
-    sub sp,sp,#68 //context_spsr¿ ¿¿
+    sub sp,sp,#68 //points current tcb's context_spsr
     mrs r1,spsr 
-    stmia sp!,{r1} //¿¿
+    stmia sp!,{r1} //backup spsr register
 
-    /* IRQ ¿¿¿ ¿¿ */
+    /* restore stack pointer */
     ldr sp,=irq_stack
 
     bl irqHandler
 
-    /* ¿¿¿ ¿¿¿¿ ¿¿ */
+    /* tesk context restore */
     ldr sp, =chinoOS_next
     ldr sp, [sp]
 
@@ -92,5 +89,3 @@ chinoOS_irqHandler:
     ldmia sp!, {r13,r14}^
 
     ldmfd sp!,{pc}^
-
-    bl irqHandler
