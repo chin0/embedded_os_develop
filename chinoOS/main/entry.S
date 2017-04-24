@@ -15,12 +15,23 @@ _ram_entry:
     b   chinoOS_swiHandler
     b   chinoOS_irqHandler
 
+#define svc_stack 0xa0300000
 #define irq_stack 0xa0380000
+#define sys_stack 0xa0400000
+
 .global kernel_init
 kernel_init:
-    msr cpsr_c,#0xc0|0x12
+    msr cpsr_c,#0xc0|0x13 //Svc mode
+    ldr r0,=svc_stack
+    sub sp,r0,#4
+
+    msr cpsr_c,#0xc0|0x12 //IRQ mode
     ldr r0,=irq_stack
     sub sp,r0,#4
+
+    msr cpsr_c, #0xc0|0x1f //System mode
+    ldr r0,=sys_stack
+    sub sp,r0,#4 
 
     msr cpsr_c,#0xc0|0x13
 
@@ -42,15 +53,44 @@ chinoOS_swiHandler:
 
 .global chinoOS_irqHandler
 chinoOS_irqHandler:
+    msr cpsr_c, #0xc0|0x12 //¿¿¿¿¿ ¿¿¿¿¿¿ IRQ¿ ¿¿¿¿(¿¿¿¿¿ ¿¿¿ ¿¿¿¿¿ ¿ ¿¿¿ ¿¿¿ ¿¿¿¿¿)
+
+    /**********************************************
+    ¿¿ ¿¿¿¿ ¿¿¿ ¿¿¿¿¿¿¿¿¿
+    ISR¿¿¿¿ ¿¿ ¿ ¿¿¿ ¿¿¿¿¿ ¿¿¿¿¿
+    ¿¿¿¿ ¿¿¿¿ (ISR¿ ¿¿¿ ¿¿¿ ¿¿¿¿
+    ¿ ¿¿¿¿¿¿)
+    ***********************************************/
+
+    /* ¿¿¿¿ ¿¿ ¿¿ */
+    //chinoOS_current: ¿¿ ¿¿ ¿¿ ¿¿¿¿ TCB¿ ¿¿¿¿ ¿¿ ¿¿ ¿¿¿ ¿¿
+    ldr sp, =chinoOS_current 
+    ldr sp, [sp] //IRQ¿¿¿¿ ¿¿¿¿ ¿¿¿¿ ¿¿ ¿¿¿¿¿ SP¿¿ ¿¿¿¿¿ ¿¿¿¿ ¿¿
+
     sub lr,lr,#4
-    stmfd sp!,{lr}
-    stmfd sp!,{r0-r14}^
-    mrs r1,spsr
-    stmfd sp!,{r1}
+    add sp,sp,#4 //sp¿ TCB¿ context ¿¿¿ ¿¿¿
+    stmia sp!,{r0-r12}^
+    stmia sp!,{sp,lr}^ //user¿¿¿ sp,lr¿¿
+    stmia sp!,{lr} //irq¿¿¿ ¿¿ ¿¿¿¿ ¿¿
+
+    sub sp,sp,#68 //context_spsr¿ ¿¿
+    mrs r1,spsr 
+    stmia sp!,{r1} //¿¿
+
+    /* IRQ ¿¿¿ ¿¿ */
+    ldr sp,=irq_stack
+
     bl irqHandler
-    ldmfd sp!,{r1}
+
+    /* ¿¿¿ ¿¿¿¿ ¿¿ */
+    ldr sp, =chinoOS_next
+    ldr sp, [sp]
+
+    ldmia sp!,{r1}
     msr spsr_cxsf,r1
-    ldmfd sp!,{r0-r14}^
+    ldmia sp!,{r0-r12}^
+    ldmia sp!, {r13,r14}^
+
     ldmfd sp!,{pc}^
 
     bl irqHandler

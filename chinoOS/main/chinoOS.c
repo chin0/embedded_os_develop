@@ -1,5 +1,34 @@
 #include <chinoOS.h>
 
+extern chino_mem_mng memmng;
+extern chino_task_mng taskmng;
+
+chino_free_task *chinoOS_current;
+chino_free_task *chinoOS_next;
+chino_free_task dummyTCB;
+int chinoOS_current_index;
+
+void scheduler(void)
+{
+    chinoOS_current_index++;
+    chinoOS_current_index %= (taskmng.max_task_id + 1);
+
+    chinoOS_next = &taskmng.free_task_pool[chinoOS_current_index];
+    chinoOS_current = chinoOS_next;
+}
+
+int sched_init(void)
+{
+    if(taskmng.max_task_id < 0){
+        return -1;
+    }
+
+    chinoOS_current = &dummyTCB;
+    chinoOS_next = &taskmng.free_task_pool[0];
+    chinoOS_current_index = -1;
+
+    return 0;
+}
 void os_timer_init(void)
 {
     ICCR = 0x01;
@@ -36,19 +65,45 @@ void irqHandler(void)
     if((ICIP&(1<<27)) != 0){
         OSSR = OSSR_M1;
         OSMR1 = OSCR + 3686400;
-        printf("Timer Interrupt!!!\n");
+        scheduler();
     }
 }
 
-int main(void){
+void chinoOS_init(void)
+{
+    mem_init();
+    task_init();
+
     os_timer_init();
     os_timer_start();
+}
+int main(void)
+{
+    chinoOS_init();
+    chino_user();
 
+    if(sched_init() < 0){
+        printf("Kernel Panic!\n");
+        return -1;
+    }
+    
     irq_enable();
 
+    int i;
+
+    for(i = 0; i <= taskmng.max_task_id;i++){
+        printf("TCB : TASK%d - init PC(%p) \t init SP(%p) \n",i+1,
+                taskmng.free_task_pool[i].context_pc,
+                taskmng.free_task_pool[i].context_sp);
+    }
+    
+    printf("REAL func TASK1 : %p\n", user_task_1);
+    printf("REAL func TASK1 : %p\n", user_task_2);
+    printf("REAL func TASK1 : %p\n", user_task_3);
+
     while(1){
-        __asm__("swi 77");
         msleep(1000);
     }
+
     return 0;
 }

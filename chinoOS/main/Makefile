@@ -11,7 +11,10 @@ LDFLAGS = -static -nostdlib -nostartfiiles -nodefaultlibs -p -X -T ./main-ld-scr
 
 OCFLAGS = -O binary -R .note -R .comment -S
 
-all: chinoOS.c
+CFILES = chinoOS.c chinoOS_memory.c chinoOS_task.c chinoOS_user.c
+HFILES = ../include/chinoOS_memory.h ../include/chinoOS.h ../include/chinoOS_task.h ../include/chinoOS_user.h
+
+all: $(CFILES) $(HFILES) 
 	$(CC) -c $(CFLAGS) -o entry.o entry.S
 	$(CC) -c $(CFLAGS) -o gpio.o gpio.c
 	$(CC) -c $(CFLAGS) -o time.o time.c
@@ -21,10 +24,13 @@ all: chinoOS.c
 	$(CC) -c $(CFLAGS) -o serial.o serial.c
 	$(CC) -c $(CFLAGS) -o lib1funcs.o lib1funcs.S
 	$(CC) -c $(CFLAGS) -o chinoOS.o chinoOS.c
-	$(LD) $(LDFLAGS) -o chinoOS_elf entry.o gpio.o time.o vsprintf.o printf.o string.o serial.o lib1funcs.o chinoOS.o
+	$(CC) -c $(CFLAGS) -o chinoOS_memory.o chinoOS_memory.c
+	$(CC) -c $(CFLAGS) -o chinoOS_task.o chinoOS_task.c
+	$(CC) -c $(CFLAGS) -o chinoOS_user.o chinoOS_user.c
+	$(LD) $(LDFLAGS) -o chinoOS_elf entry.o gpio.o time.o vsprintf.o printf.o string.o serial.o lib1funcs.o chinoOS.o chinoOS_memory.o chinoOS_task.o chinoOS_user.o
 	$(OC) $(OCFLAGS) chinoOS_elf chinoOS_img
 	$(CC) -c $(CFLAGS) -o serial.o serial.c -D IN_GUMSTIX
-	$(LD) $(LDFLAGS) -o chinoOS_gum_elf entry.o gpio.o time.o vsprintf.o printf.o string.o serial.o lib1funcs.o chinoOS.o
+	$(LD) $(LDFLAGS) -o chinoOS_gum_elf entry.o gpio.o time.o vsprintf.o printf.o string.o serial.o lib1funcs.o chinoOS.o chinoOS_memory.o chinoOS_task.o chinoOS_user.o
 	$(OC) $(OCFLAGS) chinoOS_gum_elf chinoOS_gum_img
 
 clean:

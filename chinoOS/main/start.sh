@@ -3,7 +3,7 @@
 rm -f chinoOSimg
 rm -f chinoOS.jffs2
 
-mkimage -A arm -O linux -T kernel -C none -a a0008000 -n ChinoOS -d chinoOS_gum_img uImage
+mkimage -A arm -O linux -T kernel -C none -a a0008000 -e a0008000 -n ChinoOS -d chinoOS_gum_img uImage
 
 mv uImage ../chinoOSkernel/boot/
 
